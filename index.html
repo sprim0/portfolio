@@ -396,6 +396,19 @@
             background-position: center;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .project-image:hover {
+            transform: scale(1.02);
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
         }
 
         .project-image::before {
@@ -412,6 +425,122 @@
 
         .project-card:hover .project-image::before {
             opacity: 1;
+        }
+
+        .project-image::after {
+            content: 'EXPAND';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: white;
+            background: rgba(159, 184, 173, 0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            letter-spacing: 0.5px;
+        }
+
+        .project-card:hover .project-image::after {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 95%;
+            max-height: 95%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox.active .lightbox-image {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .lightbox-info {
+            position: absolute;
+            bottom: -60px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Mobile lightbox adjustments */
+        @media (max-width: 768px) {
+            .lightbox-close {
+                top: -40px;
+                font-size: 1.5rem;
+                width: 35px;
+                height: 35px;
+            }
+
+            .lightbox-info {
+                bottom: -40px;
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
         }
 
         .project-placeholder {
@@ -954,9 +1083,9 @@
         <h2 class="section-title fade-in">Featured Projects</h2>
         <div class="projects-grid fade-in">
             <div class="project-card">
-                <div class="project-image">
+                <div class="project-image" onclick="openLightbox('https://your-image-url.jpg', 'E-commerce Conversion Platform')">
                     <div class="project-placeholder">Screenshot of E-commerce Conversion Platform</div>
-                    <!-- Replace with: <img src="path-to-screenshot.jpg" alt="E-commerce Conversion Platform Screenshot" style="width:100%;height:100%;object-fit:cover;"> -->
+                    <!-- Replace with: <img src="path-to-screenshot.jpg" alt="E-commerce Conversion Platform Screenshot"> -->
                 </div>
                 <h3>E-commerce Conversion Platform</h3>
                 <p>Full-stack application that analyzes customer behavior and implements real-time optimization strategies. Increased average conversion rates by 35% across 20+ online stores.</p>
@@ -976,9 +1105,9 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image">
+                <div class="project-image" onclick="openLightbox('https://your-image-url.jpg', 'Custom Design Gallery')">
                     <div class="project-placeholder">Screenshot of Custom Design Gallery</div>
-                    <!-- Replace with: <img src="path-to-screenshot.jpg" alt="Custom Design Gallery Screenshot" style="width:100%;height:100%;object-fit:cover;"> -->
+                    <!-- Replace with: <img src="path-to-screenshot.jpg" alt="Custom Design Gallery Screenshot"> -->
                 </div>
                 <h3>Custom Design Gallery</h3>
                 <p>Luxury jewelry e-commerce platform connecting prestigious artists and jewelers with discerning clients. Features custom design workflows, artist portfolios, and exclusive commission management systems for high-end jewelry creation.</p>
@@ -995,9 +1124,9 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image">
+                <div class="project-image" onclick="openLightbox('https://your-image-url.jpg', 'Little Grubbers - Pediatric Feeding Solutions')">
                     <div class="project-placeholder">Screenshot of Little Grubbers</div>
-                    <!-- Replace with: <img src="path-to-screenshot.jpg" alt="Little Grubbers Screenshot" style="width:100%;height:100%;object-fit:cover;"> -->
+                    <!-- Replace with: <img src="path-to-screenshot.jpg" alt="Little Grubbers Screenshot"> -->
                 </div>
                 <h3>Little Grubbers - Pediatric Feeding Solutions</h3>
                 <p>Comprehensive platform for pediatric feeding therapy and parent education. Includes virtual therapy sessions, community features, e-commerce integration, and specialized tools for addressing childhood feeding challenges with 100% success rate tracking.</p>
@@ -1014,9 +1143,9 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image">
+                <div class="project-image" onclick="openLightbox('https://your-image-url.jpg', 'Customer Analytics Dashboard')">
                     <div class="project-placeholder">Screenshot of Customer Analytics Dashboard</div>
-                    <!-- Replace with: <img src="path-to-screenshot.jpg" alt="Customer Analytics Dashboard Screenshot" style="width:100%;height:100%;object-fit:cover;"> -->
+                    <!-- Replace with: <img src="path-to-screenshot.jpg" alt="Customer Analytics Dashboard Screenshot"> -->
                 </div>
                 <h3>Customer Analytics Dashboard</h3>
                 <p>Real-time analytics platform that provides insights into user behavior, conversion funnels, and campaign performance with predictive analytics capabilities.</p>
@@ -1036,9 +1165,9 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image">
+                <div class="project-image" onclick="openLightbox('https://your-image-url.jpg', 'Social Media Optimization Tool')">
                     <div class="project-placeholder">Screenshot of Social Media Optimization Tool</div>
-                    <!-- Replace with: <img src="path-to-screenshot.jpg" alt="Social Media Optimization Tool Screenshot" style="width:100%;height:100%;object-fit:cover;"> -->
+                    <!-- Replace with: <img src="path-to-screenshot.jpg" alt="Social Media Optimization Tool Screenshot"> -->
                 </div>
                 <h3>Social Media Optimization Tool</h3>
                 <p>AI-powered platform that optimizes social media content timing, audience targeting, and engagement strategies across multiple platforms simultaneously.</p>
@@ -1058,9 +1187,9 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image">
+                <div class="project-image" onclick="openLightbox('https://your-image-url.jpg', 'Lead Scoring Algorithm')">
                     <div class="project-placeholder">Screenshot of Lead Scoring Algorithm</div>
-                    <!-- Replace with: <img src="path-to-screenshot.jpg" alt="Lead Scoring Algorithm Screenshot" style="width:100%;height:100%;object-fit:cover;"> -->
+                    <!-- Replace with: <img src="path-to-screenshot.jpg" alt="Lead Scoring Algorithm Screenshot"> -->
                 </div>
                 <h3>Lead Scoring Algorithm</h3>
                 <p>Machine learning system that scores and prioritizes leads based on behavior patterns, demographics, and engagement history to improve sales conversion rates.</p>
@@ -1103,7 +1232,50 @@
         </div>
     </section>
 
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
+            <img class="lightbox-image" id="lightbox-image" src="" alt="">
+            <div class="lightbox-info" id="lightbox-info"></div>
+        </div>
+    </div>
+
     <script>
+        // Lightbox Functions
+        function openLightbox(imageSrc, projectTitle) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxInfo = document.getElementById('lightbox-info');
+            
+            // Handle placeholder cases
+            if (imageSrc.includes('your-image-url.jpg')) {
+                // For demo purposes, show a message
+                alert('Add your actual image URL here to enable full-screen view!');
+                return;
+            }
+            
+            lightboxImage.src = imageSrc;
+            lightboxImage.alt = projectTitle;
+            lightboxInfo.textContent = projectTitle;
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
         // Mobile Navigation Functions
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
