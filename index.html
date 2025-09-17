@@ -449,7 +449,13 @@
             opacity: 1;
             transform: translate(-50%, -50%) scale(1.1);
         }
-
+        #lightbox-frame{
+            width: 100%;
+            height: 100%;
+        }
+        .hidden{
+            display: none;
+        }
         /* Lightbox Styles */
         .lightbox {
             position: fixed;
@@ -473,13 +479,18 @@
 
         .lightbox-content {
             position: relative;
-            max-width: 95%;
-            max-height: 95%;
+            max-width: 85%;
+            max-height: 85%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
+        .lightbox-content:has(:not(#lightbox-frame.hidden)) {
+            width: 80%;
+            height: 80%;
 
+        }
+        
         .lightbox-image {
             max-width: 100%;
             max-height: 100%;
@@ -1005,12 +1016,9 @@
                     <div class="skills-list">
                         <span class="skill-tag">React</span>
                         <span class="skill-tag">Vue.js</span>
-                        <span class="skill-tag">Angular</span>
                         <span class="skill-tag">TypeScript</span>
                         <span class="skill-tag">JavaScript ES6+</span>
                         <span class="skill-tag">HTML5/CSS3</span>
-                        <span class="skill-tag">Tailwind CSS</span>
-                        <span class="skill-tag">SCSS</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -1021,18 +1029,13 @@
                         <span class="skill-tag">Django</span>
                         <span class="skill-tag">Express.js</span>
                         <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">Redis</span>
-                        <span class="skill-tag">GraphQL</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Cloud & DevOps</h3>
                     <div class="skills-list">
                         <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Netlify</span>
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">Serverless</span>
                         <span class="skill-tag">Microservices</span>
@@ -1042,11 +1045,9 @@
                     <h3>MarTech & Analytics</h3>
                     <div class="skills-list">
                         <span class="skill-tag">Google Analytics</span>
-                        <span class="skill-tag">Salesforce</span>
                         <span class="skill-tag">HubSpot</span>
                         <span class="skill-tag">Mailchimp API</span>
                         <span class="skill-tag">Stripe Integration</span>
-                        <span class="skill-tag">A/B Testing</span>
                         <span class="skill-tag">Customer Journey Mapping</span>
                     </div>
                 </div>
@@ -1083,7 +1084,7 @@
         <h2 class="section-title fade-in">Featured Projects</h2>
         <div class="projects-grid fade-in">
             <div class="project-card">
-                <div class="project-image" onclick="openLightbox('images/homcdg.JPG', 'Custom Design Gallery')">
+                <div class="project-image" onclick="openLightbox('images/homcdg.JPG', '', 'Custom Design Gallery')">
                     <img src="images/homcdg.JPG" alt="Custom Design Gallery Screenshot">
                 </div>
                 <h3>Custom Design Gallery</h3>
@@ -1091,7 +1092,6 @@
                 <div class="tech-stack">
                     <span class="tech-tag">React</span>
                     <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Stripe</span>
                     <span class="tech-tag">AWS</span>
                 </div>
                 <div class="project-links">
@@ -1101,7 +1101,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image" onclick="openLightbox('images/homelg.JPG', 'Little Grubbers - Pediatric Feeding Solutions')">
+                <div class="project-image" onclick="openLightbox('images/homelg.JPG', '', 'Little Grubbers - Pediatric Feeding Solutions')">
                     <img src="images/homelg.JPG" alt="Little Grubbers Screenshot">
                 </div>
                 <h3>Little Grubbers - Pediatric Feeding Solutions</h3>
@@ -1119,7 +1119,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image" onclick="openLightbox('images/jwli-wireframe.png', 'JWLI Wireframe')">
+                <div class="project-image" onclick="openLightbox('images/jwli-wireframe.png', 'JWLIA/jwli-wireframe.html', 'JWLI Wireframe')">
                     <img src="images/jwli-wireframe.png" alt="JWLI Wireframe">
                 </div>
                 <h3>JWLI Wireframe</h3>
@@ -1127,34 +1127,32 @@
                 <div class="tech-stack">
                     <span class="tech-tag">React</span>
                     <span class="tech-tag">Python</span>
-                    <span class="tech-tag">TensorFlow</span>
                     <span class="tech-tag">AWS</span>
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image" onclick="openLightbox('images/level-ground-wireframe.png', 'Level Ground Wireframe')">
+                <div class="project-image" onclick="openLightbox('images/level-ground-wireframe.png', 'Level Ground/levelground.html', 'Level Ground Wireframe')">
                     <img src="images/level-ground-wireframe.png" alt="Level Ground Wireframe"> -->
                 </div>
                 <h3>Level Ground Wireframe</h3>
                 <p>Responsive app developed to demonstrate cross platform fucntionality.</p>
                 <div class="tech-stack">
-                    <span class="tech-tag">Next.js</span>
-                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">HTML</span>
                     <span class="tech-tag">OpenAI API</span>
                     <span class="tech-tag">MongoDB</span>
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image" onclick="openLightbox('images/hometechcrunch.JPG', 'Tech Crunch')">
+                <div class="project-image" onclick="openLightbox('images/hometechcrunch.JPG', 'Tech Crunch/index.html', 'Tech Crunch')">
                     <img src="images/hometechcrunch.JPG" alt="Tech Crunch">
                 </div>
                 <h3>Tech Crunch</h3>
                 <p>Full CSS HTML markup displaying trendy Tech Crunch newsletter home page.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Scikit-learn</span>
-                    <span class="tech-tag">FastAPI</span>
-                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
                 </div>
             </div>
         </div>
@@ -1185,15 +1183,19 @@
             <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
             <img class="lightbox-image" id="lightbox-image" src="" alt="">
             <div class="lightbox-info" id="lightbox-info"></div>
+            <iframe src="" id="lightbox-frame" class="hidden" frameborder="1"></iframe>
         </div>
     </div>
+    
 
     <script>
         // Lightbox Functions
-        function openLightbox(imageSrc, projectTitle) {
+        function openLightbox(imageSrc, href, projectTitle) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxContent = document.getElementById('lightbox-content');
             const lightboxInfo = document.getElementById('lightbox-info');
+            const lightboxFrame = document.getElementById('lightbox-frame');
             
             // Handle placeholder cases
             if (imageSrc.includes('your-image-url.jpg')) {
@@ -1205,6 +1207,14 @@
             lightboxImage.src = imageSrc;
             lightboxImage.alt = projectTitle;
             lightboxInfo.textContent = projectTitle;
+            lightboxFrame.src = href;
+            
+            lightboxImage.classList.remove ('hidden')
+            lightboxFrame.classList.add ('hidden')
+            if (href){
+                lightboxFrame.classList.remove ('hidden')
+                lightboxImage.classList.add ('hidden')
+            } 
             
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden'; // Prevent background scrolling

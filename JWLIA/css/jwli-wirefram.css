@@ -1,0 +1,227 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: white;
+}
+header{
+    display: flex;
+    justify-content: space-around;
+}
+nav ul{
+    flex-direction: row;
+    list-style-type: none;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap:25px;
+    display:flex;
+}
+nav ul li{
+    margin: 5px 0;
+   
+}
+#small-logo{
+        padding:10% 0% 0% 10%;
+   
+}
+div{
+    
+    width:50%;  
+    float: left;
+    height: auto;
+    background: #F1F3F6
+}
+#belowheader{
+   height: auto;
+     width:50%; 
+   
+}
+.section1{
+    border: 1px solid black;
+    background: #F1F3F6;
+    height: auto;
+}
+.section2{
+    border: 1px solid white;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.section2 > p{
+    text-align: center;
+    padding-top: 8%;
+    font-size: smaller;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+form, span, div > p{
+    margin-left: 5%;
+}
+
+#first{
+    text-align: left;
+    font-size: 1em;
+    margin-top: 30%;
+    margin-left: 5%;
+}
+h2{
+    text-align: center;
+    font-weight: 100;
+    padding-bottom: 5%;
+    margin-left: 5%;
+}
+article{
+    border-top: 1px solid pink;
+    margin-right: 7px;
+    width: 40%;
+    float: left;
+    margin-left: 5%;
+}
+.section3{
+    border: 1px solid gray;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    background-color: #F1F3F6;
+}
+h3{
+   margin-left: 3%;
+}
+.section3 > p{
+    width: 58%;
+    text-align: left;
+    
+    float:left;
+    margin-left: 3%;
+}
+#imgcontainer{
+    width:32%;
+    border: 1px solid white;
+    margin-left: 3%;
+    height: auto;
+}
+h1{
+    text-align: center;
+}
+.section4{
+    border: 1px solid lightgray;
+    display:flex;
+    margin:3%;
+}
+#founder{
+    float:left;
+    height: auto;
+}
+.section5{
+   border: 1px solid black; 
+   display: flex;
+}
+h5{
+    display: flex;
+    text-align: start;
+    width:50%;
+    color: #8F9CA3;
+    margin-left: 3%;
+}
+aside{
+    border: 1px solid white; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #B8C5D0;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.topfoot{
+    display:flex;
+   
+    height: 35px;
+    background-color: #B8C5D0;
+}
+.SM > span{
+    padding-right: 5%;
+    margin-left: 5%;
+}
+.copyright{
+    height: 35px;
+    background-color: #8F9CA3;
+    color: white;
+    padding-left: 5%;
+    font-size: small;
+}
+.SM{
+    height:35px;
+    text-align: right;
+    background-color: #8F9CA3;
+}
+.SM > span{
+    color: white;
+}
+.home, .programs, .jwlia, .fellows, .news, .contact, .japan{
+   height: 250px;
+   display: flex;
+   flex-direction: column;
+   background-color:#8F9CA3 ;
+   padding-left: 5%;
+   color: white;
+   font-size: small;
+}
+.home > span{
+   margin: 0; 
+}
+aside > p{
+    color: white;
+}
+
+.footbottom{
+    display: flex;
+    background-color:#8F9CA3 ;
+}
+
+@media (max-width: 1024px){
+    .section1{
+        flex-direction: row;
+    }
+    nav ul{
+        display: flex;
+        flex-grow: 2;
+    }
+}
+
+@media (max-width: 768px){
+    .section5{
+        display: flex;
+        flex-direction: column;        
+    }
+    #imgcontainer{
+        height: auto;
+    }
+    article{
+        justify-content: space-between;
+        flex-grow: 1;
+    }
+    nav ul{
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media (max-width: 665px){
+    #belowheader, #imgcontainer, .footbottom{
+        display: none;
+    }
+    div{
+        width: 100%;
+       
+    }
+    .section3 > p{
+        width:100%;
+    }
+    .section4 {
+        flex-direction: column;
+        align-items: center;
+    }
+    #founder {
+        width: 100%;
+    }
+}
+    
